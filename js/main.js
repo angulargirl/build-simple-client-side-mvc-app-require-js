@@ -83,7 +83,10 @@ require(['Models/User', 'Controllers/ListController'], function(User, ListContro
 });
 
 
-
+require(['Controllers/AddController'], function(AddController){
+    AddController.start();
+    console.log("main: AddController started...");
+});
 
 
 
