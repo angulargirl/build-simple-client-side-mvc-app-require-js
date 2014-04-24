@@ -1,14 +1,14 @@
-// Deserialize the users from the local storage and pass it to render as an object.
+// Run main behaviour of list controller
 
 define(['Views/ListView'], function(ListView){
 
     function start(){
         var users = JSON.parse(localStorage.users);
         ListView.render({users:users});
-        console.log("ListController: deserialized the users...");
     }
 
     return {
+       // console.log("ListController: call ListView render with users...");
         start:start
     };
 });

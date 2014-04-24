@@ -1,4 +1,4 @@
-//In this example, a User will be a simple class with a name attribute:
+//create User using a name or default
 define(function(){
 
     function User(name){

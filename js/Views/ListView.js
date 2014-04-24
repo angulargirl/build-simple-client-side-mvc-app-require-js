@@ -1,10 +1,13 @@
-/* Just for demo purpose
- * Important: Using plain HTML in a JavaScript file like this
+/*
+ * Warning: Just for demo purpose
+ * Using plain HTML in a JavaScript file like this
  * is not an ideal solution, because it’s very hard to maintain.
  * You should instead consider templating.
  * */
 
-
+// Display the users from the local storage by passing it to render function.
+// 1.inject in the #app element a list
+// 2. display
     define(function(){
 
     function render(parameters){

@@ -1,3 +1,6 @@
+// Display a simple text input and a button
+// 1.inject in the #app element
+// 2. display
 define(function(){
 
     function render(parameters){

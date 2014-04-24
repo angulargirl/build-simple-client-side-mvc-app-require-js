@@ -42,15 +42,16 @@ require(['app'], function(app){
 /*
 If we now come back to our main.js file, we can declare the dependency to User
 in the require method, and manually create a set of users for the purpose of this example:
-*/
 
-/*
  We then serialize in JSON the users array and store it in the HTML5 local storage
  to make it accessible just like a database:
  Note: JSON serialization with stringify and deserialization with parse need a polyfill
  to work in IE7 and inferiors. You should use Douglas Crockford’s json2.js from his Github
  repository for this.
  */
+
+//1. declare the dependency to User
+//2. create a set of users
 require(['Models/User'], function(User){
 
     var users = [new User('Barney'),
@@ -66,7 +67,7 @@ require(['Models/User'], function(User){
 
 /*
 * Runs our ListController module
-*   1. declare it as a dependency of require
+*   1. declare  the dependency to User & ListController
 *   2. call ListController.start()
 *
 * */
@@ -82,11 +83,31 @@ require(['Models/User', 'Controllers/ListController'], function(User, ListContro
     console.log("main: ListController started...");
 });
 
-
+/*
+ * Runs our AddController module
+ *   1. declare  the dependency to AddController
+ *   2. call AddController.start()
+ *
+ * */
 require(['Controllers/AddController'], function(AddController){
     AddController.start();
     console.log("main: AddController started...");
 });
 
 
+/*
+ * Runs our Router module
+ *   1. declare  the dependency to User, Router
+ *   2. call Router.start()
+ *
+ * */
+require(['Models/User', 'Router'], function(User, Router){
 
+   var users = [new User('Barney'),
+        new User('Cartman'),
+        new User('Sheldon')];
+
+    localStorage.users = JSON.stringify(users);
+
+    Router.startRouting();
+});
